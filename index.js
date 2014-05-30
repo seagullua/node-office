@@ -62,7 +62,7 @@ var office = {
 			}
 		}
 		if (options.path) {
-			exec('unoconv', ['--outputpath='+options.path, '--format='+options.format, filename], function(error, stdout, stderr) {
+			exec('unoconv', ['--output='+options.path, '--format='+options.format, filename], function(error, stdout, stderr) {
 				if (stderr) { console.error(stderr); }
 				if (!error) {
 					cb(null, path.join(options.path, path.basename(filename, path.extname(filename))+'.html'));
