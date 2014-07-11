@@ -7,10 +7,14 @@ var spawn = require('child_process').spawn;
 var exec = function(cmd, args, cb) {
 	var stdout = '';
 	var stderr = '';
-	var path_env = process.env.PATH + path.delimiter + "./";
+    var env = process.env;
+    if(path.delimiter == ":") {
 
-	
-	cmd = spawn(cmd, args, {env: {PATH: path_env}});
+        var path_env = process.env.PATH + path.delimiter + "./";
+        env = {PATH: path_env};
+    }
+
+	cmd = spawn(cmd, args, env);
 	cmd.stdout.on('data', function(data) {
 		stdout = stdout + data;
 	});
