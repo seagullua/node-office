@@ -11,9 +11,9 @@ var exec = function(cmd, args, cb) {
     if(path.delimiter == ":") {
 
         var path_env = "./"  + path.delimiter + process.env.PATH;
-        env = {PATH: path_env};
+        env = {env: {PATH: path_env}};
     }
-	console.log(env);
+	
 	cmd = spawn(cmd, args, env);
 	cmd.stdout.on('data', function(data) {
 		stdout = stdout + data;
