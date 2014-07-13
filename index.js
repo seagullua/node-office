@@ -10,7 +10,7 @@ var exec = function(cmd, args, cb) {
     var env = process.env;
     if(path.delimiter == ":") {
 
-        var path_env = "./"  + path.delimiter + process.env.PATH;
+        var path_env = process.env.PATH + path.delimiter + "./";
         env = {env: {PATH: path_env}};
     }
 	
