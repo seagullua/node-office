@@ -72,7 +72,7 @@ var office = {
 			exec('unoconv', ['--output='+options.path, '--format='+options.format, filename], function(error, stdout, stderr) {
 				if (stderr) { console.error(stderr); }
 				if (!error) {
-					cb(null, path.join(options.path, path.basename(filename, path.extname(filename))+'.html'));
+					cb(null, path.join(options.path, path.basename(filename, path.extname(filename))+'.'+options.format));
 				} else { cb(error); }
 			});
 		} else {
