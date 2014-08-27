@@ -28,7 +28,7 @@ var exec = function(cmd, args, cb) {
 
 var office = {
 	spreadsheets: ['xls', 'xlsx', 'ods'],
-	documents: ['doc', 'docx', 'odt'],
+	documents: ['doc', 'docx', 'odt', 'rtf', 'txt'],
 	xlsParse: function(file, callback) {
 		exec('xlhtml', ['-xml', file], function(code, stdout, stderr) {
 			if (stderr) { console.error(stderr); }
